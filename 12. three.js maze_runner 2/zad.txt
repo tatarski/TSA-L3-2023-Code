@@ -1,0 +1,66 @@
+1. Запишете си присъствието 4jwjxh              ПОЧИВКА ДО 10:52
+2. Клонирайте кода на maze_runner от github
+
+- ако нямате git, npm, nodejs - Инсталирайте ги
+- git clone HTTPS_LINK
+- отворете cmd в директорията three-js-maze-runner
+- npm install
+
+3. Стартирайте сървъра:
+- начин1: node server.js
+- начин2: npm install -g nodemon (програма, която прави auto restart)
+          nodemon server.js
+- начин3: добавете ново поле на script атрибута в package.json
+    npm start
+    npm test
+
+4. Нови знания:
+        new THREE.BoxGeometry(1, 1, 5); break;
+        new THREE.CylinderGeometry(1, 3, 2, 30); break;
+        new THREE.SphereGeometry(1, 10, 10, 0, Math.PI); break;
+        new THREE.DodecahedronGeometry(2, 0); break;
+        new THREE.TorusKnotGeometry(1, 2, 20, 3); break;
+        new THREE.ExtrudeGeometry(s, extrudeSettings);
+        new THREE.LatheGeometry(points);
+
+5. Направете лабиринта да може да се разрешава.
+
+6. Добавете монетки на видими позиции в лабиринта:
+    - те са торове/цилиндри
+    - монетките да се въртят
+
+let monetka_geometry = new THREE.???????
+let monetka_material = new THREE.??? (копнете го има материали в game.js)
+let monetka_mesh = new THREE.Mesh(monetka_geometry, monetka_material);
+    monetka_mesh.position / monetka_mesh.scale / monetka_mesh.rotation
+    всяко едно от горните има X,Y,Z
+    можем да ги променим така: monetka_mesh.position.x = 3
+    можем да ги променим така: monetka_mesh.rotation.set(1,2,3);
+
+
+Домашна работа:
+1. Добавете играч, който винаги е стъпил на земята (ground)
+    - направете готина геометрия за играча
+    - направете играчът да може да се контролира с W/A/S/D
+    - играчът не може да влезе в стените (ползвате проверка за сблъсък между 2 правоъгълника)
+
+window.addEventListener("keydown", function(e) {
+    console.log(e.key, e.keyCode, e.code);
+})
+
+2. Играчът може да събира монетки
+
+3. Разучета какви яки материали има в THREE.js
+
+ - new THREE.MeshPhongMaterial
+ - new THREE.MeshBasicMaterial
+
+
+Геометрия:
+- Проучете как се прави собствена геометрия (three js custom geometry)
+
+Материали:
+- как можем да сложим автоматични сенки?
+- как можем да контролираме как една текстура е сложена
+- как да сложим cube texture (фона да изглежда 3д и да има картинки на него)
+- как да направим огледален материал

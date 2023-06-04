@@ -1,0 +1,36 @@
+1. Запишете присъствията с парола: 2xnd58
+2. Направете папката public
+3. В нея копирайте start.html и game.js от code.zip
+4. В сървъра - при GET request към localhost:3000/ - искаме да пращаме start.html
+
+res.sendFile("C:\Users....")
+
+console.log(__dirname) - пази директорията на server.js
+
+let path = require("path"); // Автоматично генериране на пътища
+
+console.log(path.join("GOSHO", "PESHO"))
+console.log(path.join(__dirname, "IVAN"))
+
+app.get("/", function(req, res) {
+    res.status(200);
+    res.contentType("text/html")
+    res.sendFile(??????)
+});
+
+
+
+5. При зареждане на start.html - браузъра автоматично иска game.js.
+Каква заявка прави браузъра когато иска game.js (Developer Tools -> Network)?
+сървъра трябва когато получи подобна заявка - да прави res.sendFile(game.js)
+
+6. В init функцията на game.js -> направете GET заявка към localhost:3000/map
+https://www.w3schools.com/xml/xml_http.asp
+Заредете получения map в променлива.
+Нарисувайте получения map.
+
+
+Домашна работа:
+1. Довършете задачите, които започнахме по време на школа.
+2. При клик - слагаме червено, там където сме кликнали:
+PUT request към localhost:3000/risuvai?X=.....

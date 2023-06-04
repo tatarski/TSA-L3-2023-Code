@@ -1,0 +1,103 @@
+HTTP/ HTTPS
+Hypertext Transfer Protocol (Secure)
+
+
+Клиент прави HTTP заявка (request) към сървъра.
+Сървъра обработва HTTP request-a.
+Сървъра връща отговор(response) на клиента.
+
+Клиент - Браузъра, curl, 
+
+Server - node.js express
+
+
+Структура на HTTP Request:
+HEAD
+	- METHOD: GET/ POST/ PUT/ DELETE
+	- PROTOCOL: HTTP
+	- URL: http://youtube.com/videos/pesho.png?ime=GOSHO&age=23
+		- протокол: http
+		- име на уебсайта: youtube.com
+		- път: /videos/pesho.png
+		- URL параметри: ?ime=GOSHO&age=23
+			(ime = GOSHO, age = 23)
+	- HEADERS: още информация за заявката
+BODY
+	- BODY/PAYLOAD: 
+		- може да е файл
+		- може да е празен (задължително при GET, DELETE заявки)
+
+
+Структура на HTTP Response:
+HEAD
+	- Status Код: 200 OK, 400 Bad Request, 500 Server Error, 
+	- HEADERS: още информация за отговора
+BODY
+	- BODY/ PAYLOAD:
+		- може да е файл
+		- може да е празен
+
+
+0. Присъствия: z6frnr
+
+1. Инсталирайте node.js, Postman. 
+
+2. Копирайте моя server.js
+
+3. Отворете терминал в директорията със server.js
+
+4. Инсталирайте express:
+npm install express
+
+5. Стартирайте сървъра със node server.js или nodemon server.js
+
+6. Сървърът ни какви съобщения ще приема?
+
+- GET localhost:3000/map --> отговора е двумерния масив с цветове
+(като направим горния get request - искаме да получим целия canvas от сървъра)
+- PUT
+
+7. Напишете началния код за сървъра
+8. Стартирайте сървъра
+npm start
+node server.js
+nodemon server.js
+9. Направете get request към http://localhost:3000/ с Postman и ми покажете.
+
+10. При GET REQUEST към localhost:3000/map да се връща JSON текст на canvas-a
+11. Тествайте 10та с Postman и ми се похвалете
+12. При PUT Request към:
+localhost:3000/risuvai?X=3&Y=2&R=200&G=0&B=12
+13. Тествайте 12 с postman и ми се похвалете:
+- какво става ако X = -10?
+- какво става ако R = 10000
+- след като сме направили PUT към /risuvai, променя ли се резултата от GET към /map
+z6frnr
+
+Домашна работа:
+1. Направете PUT requesti към /risuvai никога да не дават грешки при всякакви грешни параметри:
+localhost:3000/risuvai?X=3&Y=2&R=200&G=0&B=12
+X = zelka
+Y = zelka
+R = zelka
+X = zelka123
+Y = 123zelka
+X = 
+X = 1000000
+X = -5
+X = NaN
+G = 20000
+
+2. Тествайте дали приложението ви работи правилно с Postman.
+
+3. При DELETE request към:
+localhost:3000/map?password=1234
+ Трием целия map( правим го на r=0, g=0, b=0)
+
+Само ако потребителя е уцелил паролата.
+Паролата я запазете в локалната променлива let pass = "????!?!?"
+
+4. Направете front-end на сървъра ни.
+
+(При get към / - връщаме start.html)
+В start.html - зарежда се canvas, в който може да се играе играта.
